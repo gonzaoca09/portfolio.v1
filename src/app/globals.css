@@ -1,52 +1,83 @@
 @import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: dark; /* color of browser-provided UI */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #73bf4a;
+   --color-primary-focus: #5ebf40;
+   --color-primary-content: #ffffff;
 
+   --color-secondary: #f000b8;
+   --color-secondary-focus: #bd0091;
+   --color-secondary-content: #ffffff;
+
+   --color-accent: #37cdbe;
+   --color-accent-focus: #2ba69a;
+   --color-accent-content: #ffffff;
+
+   --color-neutral: #2a2e37;
+   --color-neutral-focus: #16181d;
+   --color-neutral-content: #ffffff;
+
+   --color-base-100: #16181d;
+   --color-base-200: #2a2e37;
+   --color-base-300: #16181d;
+   --color-base-content: #ebecf0;
+
+   --color-info: #66c7ff;
+   --color-success: #87cf3a;
+   --color-warning: #e1d460;
+   --color-error: #ff6b6b;
+
+   --rounded-box: 1rem;          
+   --rounded-btn: .5rem;        
+   --rounded-badge: 1.9rem;      
+
+   --animation-btn: .25s;       
+   --animation-input: .2s;       
+
+   --btn-text-case: uppercase;   
+   --navbar-padding: .5rem;      
+   --border-btn: 1px;
 }
+
+
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-script: Great Vibes, cursive;
+  --font-geist-sans: Zilla Slab;
+  --font-google: Google Sans Code, monospace;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 main {
-  max-width: 720px;
+  max-width: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
    display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-width: 320px;
   min-height: 100dvh;
   width: 100%;
   height: 100%;
+
 }
 
 
-
-
-/* Ajuste de títulos */
-h1, h2, h3, h4 {
-  text-wrap: balance;
-}
-
-/* Ajuste de párrafos */
-p {
-  text-wrap: pretty;
+@layer base {
+  h1 {
+    font-size: var(--text-5xl);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+  p {
+    font-size: var(--text-base);
+  }
 }
