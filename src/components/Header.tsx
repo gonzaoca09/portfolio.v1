@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header({}) {
   return (
-    <header className="bg-[linear-gradient(90deg,rgba(42,123,155,1)_41%,rgba(95,200,130,1)_73%)] text-white shadow-md rounded-full flex justify-center items-center gap-8 my-8 py-2 w-min px-6 fixed top-0">
+    <header className=" z-10 bg-[linear-gradient(90deg,rgba(42,123,155,1)_41%,rgba(95,200,130,1)_73%)] text-white shadow-md rounded-full flex justify-center items-center gap-8 my-8 py-2 w-min px-6 fixed top-0">
       <nav>
         <ul className="flex space-x-6">
             <li>
