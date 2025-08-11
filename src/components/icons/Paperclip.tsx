@@ -14,7 +14,7 @@ const pathVariants: Variants = {
     opacity: 1,
     strokeWidth: 2,
     transition: {
-      duration: 1,
+      duration: 2,
       ease: "easeInOut",
       pathLength: {
         delay: 0.2,
@@ -69,7 +69,6 @@ const Paperclip = ({
         justifyContent: "center",
       }}
       onMouseEnter={() => controls.start("animate")}
-      onMouseLeave={() => controls.start("normal")}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
