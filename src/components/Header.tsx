@@ -1,38 +1,83 @@
+"use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { MagicTabSelect } from "react-magic-motion";
 
-export default function Header({}) {
+const pillTabs = [
+  { label: "Home", path: "/" },
+  { label: "About me", path: "/about" },
+  { label: "Work", path: "/work" },
+  { label: "Blogs", path: "/blog" },
+  { label: "Contact", path: "/contact" },
+];
+
+export default function Header() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const tabsComponents = pillTabs.map((tab, i) => {
+    const isHovered = hoveredIndex === i;
+    const isActive = activeIndex === i;
+
+    return (
+      <Link
+        key={tab.label}
+        href={tab.path}
+        onClick={() => setActiveIndex(i)}
+        onMouseEnter={() => setHoveredIndex(i)}
+        style={{
+          position: "relative",
+          padding: "0.65rem 0.75rem",
+          color: "white", 
+        }}
+        className="font-google text-lg bg-base-100 rounded-full"
+      >
+        {isActive && (
+          <MagicTabSelect
+            id="activePillTab"
+            transition={{ type: "spring", bounce: 0.3 }}
+          >
+            <span
+              style={{
+                borderRadius: "9999px",
+                position: "absolute",
+                inset: 0,
+                backgroundColor: "white",
+                mixBlendMode: "difference",
+                zIndex: 10,
+              }}
+            />
+          </MagicTabSelect>
+        )}
+
+        {isHovered && !isActive && (
+          <MagicTabSelect
+            id="hoverPillTab"
+            transition={{ type: "spring", bounce: 0.35 }}
+          >
+            <span
+              style={{
+                borderRadius: "9999px",
+                position: "absolute",
+                inset: 0,
+                backgroundColor: "white",
+                mixBlendMode: "difference",
+                zIndex: 10,
+              }}
+            />
+          </MagicTabSelect>
+        )}
+        {tab.label}
+      </Link>
+    );
+  });
+
   return (
-    <header className=" z-10 bg-[linear-gradient(90deg,rgba(42,123,155,1)_41%,rgba(95,200,130,1)_73%)] text-white shadow-md rounded-full flex justify-center items-center gap-8 my-8 py-2 w-min px-6 fixed top-0">
-      <nav>
-        <ul className="flex space-x-6">
-            <li>
-            <Link href="/" className="hover:text-cyan-800 transition-colors">
-              Home
-            </Link>
-          </li>
-            <li>
-            <Link href="/about" className="hover:text-cyan-800 transition-colors">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/work" className="hover:text-cyan-800 transition-colors">
-              Work
-            </Link>
-          </li>
-          <li>
-            <Link href="/blog" className="hover:text-cyan-800 transition-colors">
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:text-cyan-800 transition-colors">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  );
-}
+    <div 
+      style={{ display: "flex", gap: "0.75rem" }}
+      onMouseLeave={() => setHoveredIndex(null)}
+    >
+      {tabsComponents}
+    </div>
+  );}

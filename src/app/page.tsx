@@ -3,7 +3,6 @@ import { Paperclip } from '@/components/icons/Paperclip';
 import Link from 'next/link';
 import React from 'react';
 import { useState } from 'react';
-import NeatBackground from '@/components/NeatGradient';
 
 export default function Home() {
 
@@ -24,7 +23,7 @@ export default function Home() {
   return (
     <div className="grid grid-cols-1 items-center justify-items-center  pt-16 p-8 pb-20 gap-5">
      <div className="grid grid-cols-1 w-1/2 text-center gap-5">
-     <NeatBackground />
+     
         <h2 className=" z-10 font-size text-5xl leading-16">
           I help founders turn ideas into seamless <span className="font-bold">digital experiences</span>
         </h2>
