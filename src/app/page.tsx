@@ -38,6 +38,7 @@ export default function Home() {
           <Paperclip />
           {isCopied ? 'Copied to clipboard!' : 'gonzaoca9@gmail.com' } 
         </button>
+        
      </div>
      
     </div>

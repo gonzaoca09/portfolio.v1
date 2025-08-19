@@ -1,4 +1,4 @@
-import TrackElementViewport from '@/components/scrollWith'
+import TrackElementViewport from '@/components/ScrollWork'
 
 
 export default async function Page() {
@@ -6,9 +6,9 @@ export default async function Page() {
  
   return (
     <div>
-      <div className=" z-10 grid grid-rows-1 mb-2 w-auto ">
-          <h2 className="font-google">Work</h2>
-          <h1 className="text-5xl font-bold mb-6">Some of my curated works</h1>
+      <div className=" z-10 grid grid-rows-1 justify-center items-center  mb-30 w-auto ">
+          <h2 className="font-google text-center"></h2>
+          <h1 className="text-5xl font-bold ">Some of my curated works 📖</h1>
       </div>
      <TrackElementViewport />
     </div>  
