@@ -1,5 +1,7 @@
 "use client";
+
 import { Paperclip } from '@/components/icons/Paperclip';
+import ScrollWork from '@/components/ScrollWork';
 import Link from 'next/link';
 import React from 'react';
 import { useState } from 'react';
@@ -39,6 +41,10 @@ export default function Home() {
           {isCopied ? 'Copied to clipboard!' : 'gonzaoca9@gmail.com' } 
         </button>
         
+     </div>
+     <div className="mt-50 w-full">
+      <h2 className=" text-center text-5xl font-bold my-10">Some of my curated works 📖</h2>
+      <ScrollWork />
      </div>
      
     </div>
