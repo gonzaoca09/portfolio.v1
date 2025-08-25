@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MagicTabSelect } from "react-magic-motion";
+import { usePathname } from "next/navigation";
+
 
 const pillTabs = [
   { label: "Home", path: "/" },
@@ -13,23 +15,23 @@ const pillTabs = [
 ];
 
 export default function Header() {
+  
+  const pathname = usePathname();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
   const tabsComponents = pillTabs.map((tab, i) => {
     const isHovered = hoveredIndex === i;
-    const isActive = activeIndex === i;
+    const isActive = pathname === tab.path;
 
     return (
       <Link
         key={tab.label}
         href={tab.path}
-        onClick={() => setActiveIndex(i)}
         onMouseEnter={() => setHoveredIndex(i)}
         style={{
           position: "relative",
           padding: "0.65rem 0.75rem",
-          color: "white", 
+          color: "white",
+          backgroundColor: "#1a1a1a"
         }}
         className="font-google text-lg bg-base-100 rounded-full"
       >
@@ -75,7 +77,7 @@ export default function Header() {
 
   return (
     <div 
-      style={{ display: "flex", gap: "0.75rem" }}
+      style={{ display: "flex", gap: "0.75rem", backgroundColor: "#1a1a1a", padding: "0.5rem 1rem", borderRadius: "9999px" }}
       onMouseLeave={() => setHoveredIndex(null)}
     >
       {tabsComponents}

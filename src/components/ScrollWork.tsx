@@ -133,6 +133,9 @@ function StickyProjectDetails({
           exit="exit"
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
+          <div className="text-md">
+
+          
           <h3 className="text-2xl font-bold text-white mb-4">
             <span className={`${activeProject.colorClass}`}>– </span>{activeProject.title}
           </h3>
@@ -160,7 +163,10 @@ function StickyProjectDetails({
                 <Image height="16" width="16" alt={tech.clave} src={`https://cdn.simpleicons.org/${tech.valor}`}></Image>
                 {tech.clave}
               </div>
+              
             ))}
+
+          </div>
           </div>
         </motion.div>
       </AnimatePresence>

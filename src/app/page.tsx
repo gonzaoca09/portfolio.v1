@@ -1,5 +1,6 @@
 "use client";
 
+import Typewriter from '@/components/fancy/text/typewriter';
 import { Paperclip } from '@/components/icons/Paperclip';
 import ScrollWork from '@/components/ScrollWork';
 import Link from 'next/link';
@@ -27,11 +28,24 @@ export default function Home() {
      <div className="grid grid-cols-1 w-1/2 text-center gap-5">
      
         <h2 className=" z-10 font-size text-5xl leading-16">
-          I help founders turn ideas into seamless <span className="font-bold">digital experiences</span>
+          I help founders turn ideas into seamless <Typewriter
+          text={[
+            "digital experiences",
+            "design systems",
+            "user interfaces",
+            "web applications"
+          ]}
+          speed={60}
+          className="text-yellow-500 text-pretty"
+          waitTime={1500}
+          deleteSpeed={40}
+          cursorChar={"|"}
+        />
         </h2>
         
         <h1 className=" z-10 font-google text-xl">
-          Hello, I&apos;m Gonzalo Full Stack Developer
+          <span>Hello, I&apos;m Gonzalo, </span>
+          
         </h1>
      </div>
      <div className=" z-10 grid grid-cols-2 gap-5">

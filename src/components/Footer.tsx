@@ -9,10 +9,11 @@ export default function Footer() {
             <div>
                 <h4 className="font-google">General</h4>
                 <ul>
-                    <li><Link rel="stylesheet" href="/" />Home</li>
-                    <li><Link rel="icon" type="image/x-icon" href="https://example.com/favicon.ico" /></li>
-                    <li><Link rel="apple-touch-icon" href="https://example.com/apple-touch-icon.png" /></li>
-                    <li><Link rel="manifest" href="https://example.com/site.webmanifest" /></li>
+                    <li><Link href="/">Home</Link></li>
+                    <li><Link href="/about">About me</Link></li>
+                    <li><Link href="/work">Work</Link></li>
+                    <li><Link href="/blog">Blogs</Link></li>
+                    <li><Link href="/contact">Contact</Link></li>
                 </ul>
             </div>
         </footer>
