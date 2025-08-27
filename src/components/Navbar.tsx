@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { MagicTabSelect } from "react-magic-motion";
 import { usePathname } from "next/navigation";
+import { GiHamburger } from "react-icons/gi";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { CiUser } from "react-icons/ci";
+
 
 
 const pillTabs = [
@@ -27,13 +31,7 @@ export default function Header() {
         key={tab.label}
         href={tab.path}
         onMouseEnter={() => setHoveredIndex(i)}
-        style={{
-          position: "relative",
-          padding: "0.65rem 0.75rem",
-          color: "white",
-          backgroundColor: "#1a1a1a"
-        }}
-        className="font-google text-lg bg-base-100 rounded-full"
+        className="relative py-2 px-4 text-white"
       >
         {isActive && (
           <MagicTabSelect
@@ -76,10 +74,37 @@ export default function Header() {
   });
 
   return (
-    <div 
-      style={{ display: "flex", gap: "0.75rem", backgroundColor: "#1a1a1a", padding: "0.5rem 1rem", borderRadius: "9999px" }}
-      onMouseLeave={() => setHoveredIndex(null)}
-    >
-      {tabsComponents}
+    <div className="flex w-full justify-center">
+      <div
+        className="hidden md:flex font-google text-lg gap-3 rounded-full bg-[#1a1a1a] p-3"
+        onMouseLeave={() => setHoveredIndex(null)}
+      >
+        <div className="relative flex items-center gap-3">
+          {tabsComponents}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 justify-between md:hidden w-full px-5 gap-3">
+        <div className="justify-self-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn rounded-2xl lg:hidden">
+              <RxHamburgerMenu size={25} />
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-stone-500 transition rounded-box z-1 mt-3 w-58 p-2 shadow">
+              {pillTabs.map((tab) => (
+                <li key={tab.path}>
+                  <Link href={tab.path}>{tab.label}</Link>
+                </li>
+              ))}
+            </ul>
+        </div>
+        </div>
+        <div className="justify-self-end">
+         <CiUser size={25}/>
+        </div>
+      </div>
     </div>
-  );}
+  );
+}

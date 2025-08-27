@@ -17,10 +17,7 @@ export default function RootLayout({
 }>) { 
   return (
     <html lang="en" data-theme="dark">
-      <body
-
-        className={` antialiased pt-10 `}
-      >
+      <body>
         <Header />
         <main className="container w-full my-18">{children}</main>
          <Footer />
