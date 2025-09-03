@@ -24,10 +24,9 @@ export default function Home() {
   
 
   return (
-    <div className="grid grid-cols-1 items-center justify-items-center  pt-16 p-8 pb-20 gap-5">
-     <div className="grid grid-cols-1 w-1/2 text-center gap-5">
-     
-        <h2 className=" z-10 font-size text-5xl leading-16">
+    <div className="grid grid-cols-1 items-center justify-items-center p-8 pb-20 gap-5">
+     <div className="grid grid-cols-1 lg:w-1/2 text-center gap-5 my-10">
+        <h2 className=" font-bold text-2xl lg:text-5xl leading-8 lg:leading-16">
           I help founders turn ideas into seamless <Typewriter
           text={[
             "digital experiences",
@@ -36,16 +35,15 @@ export default function Home() {
             "web applications"
           ]}
           speed={60}
-          className="text-yellow-500 text-pretty"
-          waitTime={1500}
+          className="font-google text-yellow-500 text-pretty"
+          waitTime={2000}
           deleteSpeed={40}
-          cursorChar={"|"}
+          cursorChar={"_"}
         />
         </h2>
         
         <h1 className=" z-10 font-google text-xl">
-          <span>Hello, I&apos;m Gonzalo, </span>
-          
+          <span>Hello, I&apos;m Gonzalo Ocaranza, a Full Stack Developer</span>
         </h1>
      </div>
      <div className=" z-10 grid grid-cols-2 gap-5">

@@ -104,14 +104,14 @@ function useMediaQuery(query: string): boolean | null {
 type Project = (typeof projects)[0];
 
 const ScrollingImageSection: FC<{ project: Project; setActiveProjectId: (id: number) => void; }> = ({ project, setActiveProjectId }) => {
-  const { ref, inView } = useInView({ threshold: 0.6 });
+  const { ref, inView } = useInView({ threshold: 0.75 });
   useEffect(() => {
     if (inView) setActiveProjectId(project.id);
   }, [inView, project.id, setActiveProjectId]);
   return (
     <section ref={ref} className="flex ">
-      <div className="w-full max-w-3xl aspect-square rounded-xl overflow-hidden relative">
-        <Image src={project.imageUrl} alt={project.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain" />
+      <div className="w-fit my-10 overflow-hidden relative">
+        <Image src={project.imageUrl} alt={project.title} width={800} height={600} className="object-contain rounded-lg" />
       </div>
     </section>
   );
@@ -160,7 +160,7 @@ function StickyProjectDetails({
                 key={index}
                 className="flex gap-2 bg-stone-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-stone-600"
               >
-                <Image height="16" width="16" alt={tech.clave} src={`https://cdn.simpleicons.org/${tech.valor}`}></Image>
+                <Image height="16" width="16" alt={tech.clave} src={`https://cdn.simpleicons.org/${tech.valor}`} className="rounded-lg"></Image>
                 {tech.clave}
               </div>
               
@@ -230,7 +230,7 @@ export default function PortfolioSectionFinal() {
     <section className="">
       <div className="mx-auto flex max-w-[1300px] gap-16 px-8 py-10">
         <div className="w-2/3 ">{projects.map((project) => (<ScrollingImageSection key={project.id} project={project} setActiveProjectId={setActiveProjectId} />))}</div>
-        <div className="w-1/2 my-20"><StickyProjectDetails activeProject={activeProject} /></div>
+        <div className="w-1/2 mt-9 px-2 pl-15"><StickyProjectDetails activeProject={activeProject} /></div>
       </div>
     </section>
   );

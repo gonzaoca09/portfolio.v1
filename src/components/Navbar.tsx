@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { MagicTabSelect } from "react-magic-motion";
 import { usePathname } from "next/navigation";
-import { GiHamburger } from "react-icons/gi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CiUser } from "react-icons/ci";
 
